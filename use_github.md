@@ -35,4 +35,26 @@ git push -u origin master
 ```cmdline
 git remote add origin git@github.com:linkembed/digital_album.git
 git push -u origin master
-```
+```  
+
+**目前使用的操作流程**   
+目前我写电子文档的方法是：  在Windows中使用MarkdownPad2编辑文档，放在虚拟机ubuntu的windows共享文件夹中。然后在虚拟机中的ubuntu中使用git进行commit，最后push到github上。具体操作如下：  
+* 添加一个新文件时： 首先在MarkdownPad中添加新文件，编辑内容。然后到虚拟机ubuntu中ls确认该文件存在并且已经被更改（譬如文件名叫test.md），然后按照以下步骤操作即可。  
+```cmdline
+git add test.md
+git commit -m "在此输入你此次提交的提示信息，这些信息可以方便你以后查找时知道本次提交的更改内容。"
+git push -u origin master
+```  
+* 更改一个文件内容时：只需在MarkdownPad中打开之前的文件，编辑更改，然后到虚拟机ubuntu中执行与上面添加新文件时相同的操作即可。
+* 重命名一个文件时：到虚拟机ubuntu中，使用git mv test.md use_github.md，即可将原来名为test.md的文件重命名为use_github.md，整个过程如下：
+```cmdline
+git mv test.md use_github.md
+git commit -m "在此输入你此次提交的提示信息，这些信息可以方便你以后查找时知道本次提交的更改内容。"
+git push -u origin master
+```  
+* 删除一个文件时：到虚拟机ubuntu中，使用git rm use_github.md，即可将原来名为use_github.md的文件删除掉。
+```cmdline
+git rm use_github.md
+git commit -m "在此输入你此次提交的提示信息，这些信息可以方便你以后查找时知道本次提交的更改内容。"
+git push -u origin master
+```  
